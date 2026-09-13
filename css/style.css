@@ -1,0 +1,161 @@
+/* 1. Styles for the Gallery Project: Mobile First View */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background-color: #dedede;
+}
+
+header h1 {
+  text-align: center;
+  /* font-family: Arial, sans-serif; */
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+/* Mobile Grid View: 1 column with 10px gap */
+.grid {
+  display: grid;
+  grid-template-columns: none;
+  gap: 10px;
+}
+
+figure {
+  margin: 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption p {
+  margin-top: 10px;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+a {
+  color: #e3e3ed;
+  text-decoration: none;
+}
+
+/* 2. Media Queries for Tablets (772px) */
+@media screen and (min-width: 772px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  figure {
+    border-radius: 20px;
+  }
+
+  /* Circular Images inside figures */
+
+  figure img {
+    border-radius: 50%;
+  }
+
+  /* Last figure to span both columns */
+  figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* 3. Media Queries for Desktops (992px) */
+@media screen and (min-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  /* Border radius for figures removed */
+  figure,
+  figure img {
+    border-radius: 0;
+  }
+
+  /* Reset last-child span if needed */
+  figure:last-child {
+    grid-column: auto;
+  }
+
+  /* Each 3rd figure to take up two columns */
+  figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* 4. Media Query for Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  figure {
+    transition: none;
+  }
+}
+
+/* 5. Media Query for Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
+  figure {
+    background-color: #444;
+    color: #fff;
+    border-color: #555;
+  }
+
+  figcaption p {
+    color: #ccc;
+  }
+}
+
+/* a {
+  color: #000;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+p {
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  text-align: center;
+}
+
+div img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: auto;
+}
+
+div {
+  display: inline-block;
+  width: 24%;
+  margin: 5px;
+  padding: 2px;
+} */
